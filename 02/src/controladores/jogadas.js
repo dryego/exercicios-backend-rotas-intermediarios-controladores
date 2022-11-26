@@ -1,13 +1,18 @@
 const jogadores = require('../bancoDeDados/dadosJogadores');
 
+let = jogadorDaVez = 0;
 const jogadas = (req, res) => {
-    let i = 0;
-    if (i == jogadores.length) {
-        i = 0;
+
+    const nomeJogador = jogadores[jogadorDaVez];
+
+    jogadorDaVez++;
+
+    if (jogadorDaVez >= jogadores.length) {
+        jogadorDaVez = 0;
     }
-    //let jogadorDaVez = jogadores[i];
-    res.send(`É a vez de ${jogadores[i]} jogar!`)
-    i++;
+
+    res.send(`É a vez de ${nomeJogador} jogar!`)
+
 }
 
 const removerJogador = (req, res) => {
